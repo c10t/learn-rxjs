@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Story } from '../../vo/item';
 
 @Component({
   selector: 'app-reader-list',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reader-list.component.css']
 })
 export class ReaderListComponent implements OnInit {
+  @Input() stories: Story[]
 
   constructor() { }
 

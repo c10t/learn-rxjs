@@ -1,4 +1,4 @@
 <div class="siimple-content siimple-content--large">
-  <app-reader-switch></app-reader-switch>
-  <app-reader-list></app-reader-list>
+  <app-reader-switch [awake]="false" (switchedTo)="onSwitch($event)"></app-reader-switch>
+  <app-reader-list [stories]="stories"></app-reader-list>
 </div>

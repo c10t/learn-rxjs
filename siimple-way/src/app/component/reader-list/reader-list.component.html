@@ -1,12 +1,9 @@
 <div class="siimple-list siimple-list--hover">
-  <div class="siimple-list-item">
-      <div class="siimple-list-title">Item title 01</div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-      <span class="siimple-tag siimple-tag--primary siimple-tag--rounded">0</span>
-  </div>
-  <div class="siimple-list-item">
-    <div class="siimple-list-title">Item title 02</div>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-    <span class="siimple-tag siimple-tag--error siimple-tag--rounded">10</span>
+  <div class="siimple-list-item" *ngFor="let story of stories">
+    <div class="siimple-list-title">
+      {{ story.score }} | <a href="{{ story.url }}" target="_blank" rel="noopener">{{ story.title }}</a>
+    </div>
+    <span>{{ story.by }}</span>
+    <span class="siimple-tag siimple-tag--primary siimple-tag--rounded">{{ story.descendants }}</span>
   </div>
 </div>
