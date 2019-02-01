@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { STORIES } from '../../mock-stories'
 import { Story } from '../../vo/item';
+import { HackerNewsFetchService } from 'src/app/service/hacker-news-fetch.service';
 
 @Component({
   selector: 'app-reader',
@@ -14,29 +15,13 @@ export class ReaderComponent implements OnInit {
   onSwitch(onReading: boolean) {
     if (onReading) {
       console.log("start reading...")
-
-      const now = Date.now()
-      const newTitle = "title-" + now
-
-      this.stories.push(
-        {
-          by: 'Foobar Baz',
-          id: 13412,
-          descendants: 100,
-          kids: [],
-          score: 99,
-          time: now,
-          title: newTitle,
-          type: 'story',
-          url: 'url'
-        }
-      )
+      this.hn.getNewStories().subscribe(x => this.stories = x)
     } else {
       console.log("stop reading...")
     }
   }
 
-  constructor() { }
+  constructor(private hn: HackerNewsFetchService) { }
 
   ngOnInit() {
   }
