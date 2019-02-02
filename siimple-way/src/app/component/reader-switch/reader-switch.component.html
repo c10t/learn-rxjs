@@ -1,10 +1,11 @@
 <div class="siimple-card">
   <div class="siimple-card-body">
-    <label class="siimple-label">stop reading</label>
     <div class="siimple-switch siimple-switch--error">
       <input type="checkbox" id="mySwitch2" 
         [checked]="awake" (change)="pushSwitch()">
       <label for="mySwitch2"></label>
     </div>
+    <label *ngIf="awake" class="siimple-label">READING... </label>
+    <label *ngIf="!awake" class="siimple-label">SLEEPING... </label>
   </div>
 </div>
