@@ -1,0 +1,8 @@
+{
+  "/hn": {
+    "target": "https://hacker-news.firebaseio.com/v0",
+    "pathRewrite": {"^/hn": ""},
+    "secure": false,
+    "changeOrigin": true
+  }
+}

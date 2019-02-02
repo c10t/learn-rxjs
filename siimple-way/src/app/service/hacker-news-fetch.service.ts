@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HackerNewsFetchService {
-  baseURL: string = 'https://hacker-news.firebaseio.com/v0'
+  baseURL: string = '/hn'
 
   getNewStories(): Observable<Story> {
     const ids$ = this.http.get<number[]>(`${this.baseURL}/newstories.json`)
