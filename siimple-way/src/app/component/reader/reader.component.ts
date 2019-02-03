@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { STORIES } from '../../mock-stories'
 import { Story } from '../../vo/item';
 import { HackerNewsFetchService } from 'src/app/service/hacker-news-fetch.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reader',
@@ -10,14 +10,16 @@ import { HackerNewsFetchService } from 'src/app/service/hacker-news-fetch.servic
   styleUrls: ['./reader.component.css']
 })
 export class ReaderComponent implements OnInit {
-  private stories: Story[] = [] // STORIES
+  private stories: Story[] = []
+  private sub: Subscription
 
   onSwitch(onReading: boolean) {
     if (onReading) {
       console.log("start reading...")
-      this.hn.getNewStories().subscribe(x => this.stories.push(x))
+      this.sub = this.hn.getNewStories().subscribe(x => this.stories.push(x))
     } else {
       console.log("stop reading...")
+      this.sub.unsubscribe()
     }
   }
 

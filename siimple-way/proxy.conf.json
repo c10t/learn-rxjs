@@ -1,7 +1,7 @@
 {
-  "/hn": {
+  "/api/hn": {
     "target": "https://hacker-news.firebaseio.com/v0",
-    "pathRewrite": {"^/hn": ""},
+    "pathRewrite": {"^/api/hn": ""},
     "secure": false,
     "changeOrigin": true
   }
