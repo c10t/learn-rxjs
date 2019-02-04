@@ -11,10 +11,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HackerNewsFetchService {
   baseURL: string = 'api/hn'
 
-  getNewStories(): Observable<Story> {
+  getTopStories(): Observable<Story> {
     const ids$: Observable<number> = this.http
-      .get<number[]>(`${this.baseURL}/newstories.json`)
-      .pipe(flatMap(ids => from(ids)))
+      .get<number[]>(`${this.baseURL}/topstories.json`)
+      .pipe(
+        tap(x => console.log(`fetched ${x.length} stories`)),
+        map(x => x.slice(0, 10)),
+        flatMap(ids => from(ids))
+      )
 
     const timer$ = timer(2000, 2000)
 

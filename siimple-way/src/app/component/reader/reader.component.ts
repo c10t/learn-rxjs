@@ -16,7 +16,7 @@ export class ReaderComponent implements OnInit {
   onSwitch(onReading: boolean) {
     if (onReading) {
       console.log("start reading...")
-      this.sub = this.hn.getNewStories().subscribe(x => this.stories.push(x))
+      this.sub = this.hn.getTopStories().subscribe(x => this.stories.push(x))
     } else {
       console.log("stop reading...")
       this.sub.unsubscribe()

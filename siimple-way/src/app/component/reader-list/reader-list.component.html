@@ -1,9 +1,9 @@
 <div class="siimple-list siimple-list--hover">
   <div class="siimple-list-item" *ngFor="let story of stories">
     <div class="siimple-list-title">
-      {{ story.score }} | <a href="{{ story.url }}" target="_blank" rel="noopener">{{ story.title }}</a>
+      {{ story.score }} | <a  class="siimple--color-dark" href="{{ story.url }}" target="_blank" rel="noopener">{{ story.title }}</a>
     </div>
-    <span>{{ story.by }}</span>
+    <span>by {{ story.by }}</span>
     <span class="siimple-tag siimple-tag--primary siimple-tag--rounded">{{ story.descendants }}</span>
   </div>
 </div>
